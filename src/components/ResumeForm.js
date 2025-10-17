@@ -71,6 +71,7 @@ const ResumeForm = ({
 
   return (
     <form className="resume-form" onSubmit={handleCreate}>
+      {/* Personal Info */}
       <h2>Personal Information</h2>
       <input type="text" name="name" placeholder="Name" value={personalInfo.name} onChange={handlePersonalInfoChange} />
       <input type="email" name="email" placeholder="Email" value={personalInfo.email} onChange={handlePersonalInfoChange} />
@@ -98,16 +99,11 @@ const ResumeForm = ({
       ))}
       <button type="button" className="add-button" onClick={addEducation}>Add Education</button>
 
-      {/* ✅ Skills Section */}
+      {/* Skills */}
       <h2>Skills</h2>
       {skills.map((skill, index) => (
         <div key={index} className="skill-entry">
-          <input
-            type="text"
-            placeholder="Enter a skill"
-            value={skill}
-            onChange={(e) => handleSkillChange(index, e)}
-          />
+          <input type="text" placeholder="Enter a skill" value={skill} onChange={(e) => handleSkillChange(index, e)} />
           {index > 0 && (
             <button type="button" className="add-button" style={{ background: '#f87171', color: '#fff' }} onClick={() => removeSkill(index)}>
               Remove
@@ -121,23 +117,9 @@ const ResumeForm = ({
       <h2>Custom Sections</h2>
       {customSections.map((section, idx) => (
         <div key={idx} className="custom-section-entry">
-          <input
-            type="text"
-            className="custom-section-title"
-            value={section.title}
-            onChange={(e) => handleCustomSectionTitle(idx, e.target.value)}
-            placeholder="Section Title"
-          />
-          <textarea
-            className="custom-section-content"
-            value={section.content}
-            onChange={(e) => handleCustomSectionContent(idx, e.target.value)}
-            placeholder="Section Content"
-            rows={2}
-          />
-          <button type="button" className="add-button" style={{ background: '#f87171', color: '#fff' }} onClick={() => removeCustomSection(idx)}>
-            Remove
-          </button>
+          <input type="text" className="custom-section-title" value={section.title} onChange={(e) => handleCustomSectionTitle(idx, e.target.value)} placeholder="Section Title" />
+          <textarea className="custom-section-content" value={section.content} onChange={(e) => handleCustomSectionContent(idx, e.target.value)} placeholder="Section Content" rows={2} />
+          <button type="button" className="add-button" style={{ background: '#f87171', color: '#fff' }} onClick={() => removeCustomSection(idx)}>Remove</button>
         </div>
       ))}
       <button type="button" className="add-button" onClick={addCustomSection}>Add Custom Section</button>
@@ -150,9 +132,7 @@ const ResumeForm = ({
           <input type="text" name="company" placeholder="Company" value={work.company} onChange={(e) => handleWorkExperienceChange(index, e)} />
           <input type="text" name="years" placeholder="Years" value={work.years} onChange={(e) => handleWorkExperienceChange(index, e)} />
           {index > 0 && (
-            <button type="button" className="add-button" style={{ background: '#f87171', color: '#fff' }} onClick={() => removeWorkExperience(index)}>
-              Remove
-            </button>
+            <button type="button" className="add-button" style={{ background: '#f87171', color: '#fff' }} onClick={() => removeWorkExperience(index)}>Remove</button>
           )}
         </div>
       ))}
