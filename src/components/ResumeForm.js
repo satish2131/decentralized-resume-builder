@@ -78,7 +78,7 @@ const ResumeForm = ({
             <input type="text" name="address" placeholder="Address" value={personalInfo.address} onChange={handlePersonalInfoChange} />
 
             
-            <button type="button" className="add-button" onClick={addWorkExperience}>Add Work Experience</button>
+            
 
             <h2>Education</h2>
             {education.map((edu, index) => (
@@ -118,7 +118,9 @@ const ResumeForm = ({
                     <input type="text" name="company" placeholder="Company" value={work.company} onChange={(e) => handleWorkExperienceChange(index, e)} />
                     <input type="text" name="years" placeholder="Years" value={work.years} onChange={(e) => handleWorkExperienceChange(index, e)} />
                 </div>
+             
             ))}
+<button type="button" className="add-button" onClick={addWorkExperience}>Add Work Experience</button>
            
         </form>
     );
